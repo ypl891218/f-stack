@@ -13,6 +13,7 @@ PKGCONF ?= pkg-config
 CFLAGS += -O0 -g -gdwarf-2 $(shell $(PKGCONF) --cflags libdpdk)
 
 LIBS+= $(shell $(PKGCONF) --static --libs libdpdk)
+$(info LIB is now $(LIBS))
 LIBS+= -L${FF_PATH}/lib -Wl,--whole-archive,-lfstack,--no-whole-archive
 LIBS+= -Wl,--no-whole-archive -lrt -lm -ldl -lcrypto -pthread -lnuma
 
